@@ -115,7 +115,7 @@ MSE (test): 0.4053
 
 MSE (test): 0.3570
 
-![Imgur](https://i.imgur.com/J0Glu29.png)
+![Imgur](https://i.imgur.com/ujvUtYi.png)
 
 **Multivariate Stacked-LSTM**
 
@@ -153,3 +153,5 @@ The results, even though are not 100% conclusive, state that adding more data - 
 Nevertheless, simpler models such as the Vanilla-LSTM (multivariate) and the Bi-LSTM performed extremely well, the latter showing exceptional results at a higher computational cost.
 
 In relation with the Bi-LSTM, I noticed that the training is way slower since it takes additional batches of data. This could explain both the -better- loss and error, which in my opinion outperforms the rest of architectures, and could indicate that there are additional features captured by the bidirectionality that are not taken into account on unidirectional models.
+
+And at last but not least, even though we see how the error improves on multivariate models in regards to the univariate model, on the plots above we see how actually the prediction looks like displaced to the right, which may mean that multivariate adds a noise whereas on univariate this does not exist.
