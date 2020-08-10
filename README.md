@@ -35,6 +35,8 @@ I wanted to use natural language processing, text analysis and computational lin
 
 To do so, I used the [finBERT project](https://github.com/ProsusAI/finBERT), which was specifically made to perform sentiment analysis of financial texts, since it uses a large financial corpus and it has been therefore fine-tuned for financial sentiment classification.
 
+[Dataset with News headlines used](https://www.kaggle.com/aaron7sun/stocknews)
+
 ### 2. Feature Engineering
 
 For trend analysis purpose, I computed 
@@ -57,18 +59,18 @@ For trend analysis purpose, I computed
 
 ### 3. Exploratory Data Analysis
 
-Performed a complete EDA by visualizing the distributions, applying transformations and comparing the several features available with correlations matrices.
+Performed a complete EDA by visualizing the distributions, applying transformations and comparing the several features available with correlation matrices and scatter plots.
 
 
 ### 4. Statistical Checks
 
-- Heteroscedasticity: 
+- <ins>Heteroscedasticity</ins>: 
 
 `What you have in your data when the conditional variance is not constant, understanding conditional variance as the variability that you see in y (dependant variable) for each value of t (time period).`
 
 Given the nature of most of the variables in the dataset (stock prices, indexes and currency pairs), and after seeing the plots in the EDA section, we can confirm that most of the features are nonlinear and heteroscedastic.
 
-- Multicollinearity:
+- <ins>Multicollinearity</ins>:
 
 `Multicollinearity is given when two or more independent variables are highly correlated with one another in a regression model`.
 
@@ -78,7 +80,7 @@ The Variance Inflation Factor (VIF) will easily let us see the multicollinearity
 - VIF > 20, high multicollinearity between this independent variable and the others
 
 
-- Autocorrelation
+- <ins>Autocorrelation</ins>:
 
 `Autocorrelation is a mathematical representation of the degree of similarity between a given time series and a lagged version of itself over successive time intervals.` [[Source]](https://www.investopedia.com/terms/a/autocorrelation.asp#:~:text=Autocorrelation%20represents%20the%20degree%20of,itself%20over%20successive%20time%20intervals.&text=An%20autocorrelation%20of%20%2B1%20represents%20a%20perfect%20positive%20correlation%2C%20while,represents%20a%20perfect%20negative%20correlation.)
 
@@ -86,10 +88,6 @@ The Variance Inflation Factor (VIF) will easily let us see the multicollinearity
 ### 5. Feature Selection
 
 By using a tree-based algorithm,  we are able to see the importance of each of the features when a decision is made. I decided, then, to use a pretty popular algorithm, XGBoost, in order to see what features the model was taking more into account.
-
-![random text](https://i.imgur.com/TgBC7pa.png)
-
-*Figure: Example of feature selection plot with Indexes*
 
 ### 6. Modelling and Hyperparameter Optimization
 
@@ -123,7 +121,7 @@ MSE (test): 0.3570
 
 MSE (test): 1.2658
 
-![Imgur](https://i.imgur.com/undefined)
+![Imgur](https://i.imgur.com/skbUIPa.png)
 
 **Multivariate CNN-LSTM**
 
