@@ -35,7 +35,7 @@ I wanted to use natural language processing, text analysis and computational lin
 
 To do so, I used the [finBERT project](https://github.com/ProsusAI/finBERT), which was specifically made to perform sentiment analysis of financial texts, since it uses a large financial corpus and it has been therefore fine-tuned for financial sentiment classification.
 
-#### 2. Feature Engineering
+### 2. Feature Engineering
 
 For trend analysis purpose, I computed 
 
@@ -55,12 +55,12 @@ For trend analysis purpose, I computed
     
 **Note:** due to their high dependancy on the target variable, many of them were dropped before modelling and were used merely for visualization purposes.
 
-#### 3. Exploratory Data Analysis
+### 3. Exploratory Data Analysis
 
 Performed a complete EDA by visualizing the distributions, applying transformations and comparing the several features available with correlations matrices.
 
 
-#### 4. Statistical Checks
+### 4. Statistical Checks
 
 - Heteroscedasticity: 
 
@@ -83,7 +83,7 @@ The Variance Inflation Factor (VIF) will easily let us see the multicollinearity
 `Autocorrelation is a mathematical representation of the degree of similarity between a given time series and a lagged version of itself over successive time intervals.` [[Source]](https://www.investopedia.com/terms/a/autocorrelation.asp#:~:text=Autocorrelation%20represents%20the%20degree%20of,itself%20over%20successive%20time%20intervals.&text=An%20autocorrelation%20of%20%2B1%20represents%20a%20perfect%20positive%20correlation%2C%20while,represents%20a%20perfect%20negative%20correlation.)
 
 
-#### 5. Feature Selection
+### 5. Feature Selection
 
 By using a tree-based algorithm,  we are able to see the importance of each of the features when a decision is made. I decided, then, to use a pretty popular algorithm, XGBoost, in order to see what features the model was taking more into account.
 
@@ -91,7 +91,7 @@ Figure: Example of feature selection plot with Indexes
 ![random text](https://i.imgur.com/TgBC7pa.png)
 
 
-#### 6. Modelling and Hyperparameter Optimization
+### 6. Modelling and Hyperparameter Optimization
 
 I had clear that I wanted to use **Long Short-Term Memory Networks**, due to their sequence nature and therefore good performance on time series.
 
@@ -111,44 +111,44 @@ For hyperparameter tuning and optimization, I used `hyperopt` with `EarlyStoppin
 
 MSE (test): 0.4053
 
-![Imgur](https://imgur.com/HwHMj7X)
+[Imgur](https://imgur.com/HwHMj7X)
 
 **Multivariate Vanilla-LSTM**
 
 MSE (test): 0.3570
 
-![Imgur](https://imgur.com/J0Glu29)
+[Imgur](https://imgur.com/J0Glu29)
 
 **Multivariate Stacked-LSTM**
 
 MSE (test): 1.2658
 
-![Imgur](https://imgur.com/undefined)
+[Imgur](https://imgur.com/undefined)
 
 **Multivariate CNN-LSTM**
 
 MSE (test): 0.9602
 
-![Imgur](https://imgur.com/uMRjwho)
+[Imgur](https://imgur.com/uMRjwho)
 
 **Bidirectional-LSTM**
 
 MSE (test): 0.3985
 
-![Imgur](https://imgur.com/mlKp6AO)
+[Imgur](https://imgur.com/mlKp6AO)
 
 **Autoregressive Integrated Moving Average (ARIMA)**
 
 MSE (test): 0.517 
 
-![Imgur](https://imgur.com/2FMvwBx)
+[Imgur](https://imgur.com/2FMvwBx)
 
 
 ## Conclusions
 
-This project reported the results of experimentation, through which the performance and accuracy as well as behavioral training of ARIMA, Vanilla/Stacked LSTM, CNN-LSTM and Bidirectional-LSTM models were analyzed, hyper-tuned and compared. 
+This project reported the results of experimentation, through which the performance and accuracy as well as behavioral training of Vanilla/Stacked LSTM, CNN-LSTM and Bidirectional-LSTM models were analyzed, hyper-tuned and compared. I also added a forecast made with an ARIMA model.
 
-The main objective of this project was primarily to focus on whether adding correlated assets and sentiment analysis would help on improving the precision of time series forecasting applied to the stock market.
+The main objective of this project was primarily to focus on whether adding correlated assets and sentiment analysis would help on improving the precision of time series forecasting applied to the stock market, and compare the results between univariate and multivariate models.
 
 The results, even though are not 100% conclusive, state that adding more data - such as the one mentioned above - for stock price forecasting can easily incur in model confusion and poor generalization on unseen data. 
 
