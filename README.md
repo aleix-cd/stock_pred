@@ -87,9 +87,9 @@ The Variance Inflation Factor (VIF) will easily let us see the multicollinearity
 
 By using a tree-based algorithm,  we are able to see the importance of each of the features when a decision is made. I decided, then, to use a pretty popular algorithm, XGBoost, in order to see what features the model was taking more into account.
 
-Figure: Example of feature selection plot with Indexes
 ![random text](https://i.imgur.com/TgBC7pa.png)
 
+*Figure: Example of feature selection plot with Indexes*
 
 ### 6. Modelling and Hyperparameter Optimization
 
@@ -111,47 +111,47 @@ For hyperparameter tuning and optimization, I used `hyperopt` with `EarlyStoppin
 
 MSE (test): 0.4053
 
-[Imgur](https://imgur.com/HwHMj7X)
+![Imgur](https://i.imgur.com/HwHMj7X.png)
 
 **Multivariate Vanilla-LSTM**
 
 MSE (test): 0.3570
 
-[Imgur](https://imgur.com/J0Glu29)
+![Imgur](https://i.imgur.com/J0Glu29.png)
 
 **Multivariate Stacked-LSTM**
 
 MSE (test): 1.2658
 
-[Imgur](https://imgur.com/undefined)
+![Imgur](https://i.imgur.com/undefined)
 
 **Multivariate CNN-LSTM**
 
 MSE (test): 0.9602
 
-[Imgur](https://imgur.com/uMRjwho)
+![Imgur](https://i.imgur.com/uMRjwho.png)
 
 **Bidirectional-LSTM**
 
 MSE (test): 0.3985
 
-[Imgur](https://imgur.com/mlKp6AO)
+![Imgur](https://i.imgur.com/mlKp6AO.png)
 
 **Autoregressive Integrated Moving Average (ARIMA)**
 
-MSE (test): 0.517 
+MSE (test): 0.5170 
 
-[Imgur](https://imgur.com/2FMvwBx)
+![Imgur](https://i.imgur.com/2FMvwBx.png)
 
 
 ## Conclusions
 
-This project reported the results of experimentation, through which the performance and accuracy as well as behavioral training of Vanilla/Stacked LSTM, CNN-LSTM and Bidirectional-LSTM models were analyzed, hyper-tuned and compared. I also added a forecast made with an ARIMA model.
+This project reported the results of experimentation, through which the performance and accuracy as well as behavioral training of Vanilla/Stacked LSTM, CNN-LSTM and Bidirectional-LSTM models were analyzed, hyper-tuned and compared. I also added a forecast made with an ARIMA algorithm.
 
 The main objective of this project was primarily to focus on whether adding correlated assets and sentiment analysis would help on improving the precision of time series forecasting applied to the stock market, and compare the results between univariate and multivariate models.
 
-The results, even though are not 100% conclusive, state that adding more data - such as the one mentioned above - for stock price forecasting can easily incur in model confusion and poor generalization on unseen data. 
+The results, even though are not 100% conclusive, state that adding more data - such as the one mentioned above - for stock price forecasting can easily incur in model confusion and poor generalization on test sets. Actually, by only looking at the *Real vs Predicted* graphs, we can clearly see weak trend followage in case of our latter models (Stacked and CNN-LSTM, the most) which we could interpret as too much overfitting on the training set.
 
 Nevertheless, simpler models such as the Vanilla-LSTM (multivariate) and the Bi-LSTM performed extremely well, the latter showing exceptional results at a higher computational cost.
 
-In relation with the Bi-LSTM, I noticed that the training based on it is way slower since it takes additional batches of data. This could explain both the -better- loss and error, which in my opinion outperforms the rest of architectures, and could indicate that there are additional features captured by the bidirectionality that are not taken into account on unidirectional models.
+In relation with the Bi-LSTM, I noticed that the training is way slower since it takes additional batches of data. This could explain both the -better- loss and error, which in my opinion outperforms the rest of architectures, and could indicate that there are additional features captured by the bidirectionality that are not taken into account on unidirectional models.
